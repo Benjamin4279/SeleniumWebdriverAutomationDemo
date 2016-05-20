@@ -1,0 +1,42 @@
+package com.Testing.Pages2;
+
+import org.openqa.selenium.By; import org.openqa.selenium.WebDriver; import org.openqa.selenium.firefox.FirefoxDriver; import org.testng.annotations.Test;
+
+import com.Testing.Pages.LoginSegment;
+
+public class GithubVerification {
+
+WebDriver driver = new FirefoxDriver();
+
+
+@Test
+public void TestVerification(){
+
+    driver.manage().window().maximize();
+    driver.get("https://github.com/");
+    driver.findElement(By.xpath("//a[@class= 'btn' and @href= '/login' ]")).click();
+
+
+    LoginSegment login = new LoginSegment(driver);
+    login.UserloginEmail();
+    login.UserloginPassword();
+    login.LoginButton();
+
+
+    //Link to pricing information
+    driver.findElement(By.linkText("Pricing")).click();
+
+    //Link to GutHub Enterprise
+    driver.findElement(By.xpath("//a[contains(@href, 'https://enterprise.github.com') ]")).click();
+
+    //Link to about GitHub
+    driver.findElement(By.linkText("About us")).click();
+
+    //Navigation menu
+    driver.findElement(By.xpath("//a[contains(@href, '/about/team')]")).click();
+    driver.findElement(By.xpath("//a[contains(@href, '/about/press')]")).click();
+    driver.findElement(By.xpath("//a[contains(@href, '/about/jobs')]")).click();
+
+
+}
+}
