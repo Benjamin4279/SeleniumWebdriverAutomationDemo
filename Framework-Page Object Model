@@ -1,0 +1,31 @@
+package com.Testing.Pages;
+
+import org.openqa.selenium.By; import org.openqa.selenium.WebDriver;
+
+public class LoginSegment {
+
+WebDriver driver;
+
+By UserEmail = By.id("login_field");
+By Password = By.id("password");
+By loginButton = By.xpath("//input[@class= 'btn btn-primary btn-block']");
+
+public LoginSegment(WebDriver driver){
+
+    this.driver = driver;
+}
+
+public void UserloginEmail(){
+
+    driver.findElement(UserEmail).sendKeys("batmanblue79@gmail.com");
+}
+
+public void UserloginPassword(){
+
+    driver.findElement(Password).sendKeys("quicksilver427");
+}
+
+public void LoginButton(){
+
+    driver.findElement(loginButton).click();
+}
